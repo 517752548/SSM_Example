@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.fotoable.jkens.dao.IUserDao">
+    <resultMap id="userList" type="com.fotoable.jkens.pojo.User">
+
+        <id column="id" property="id" ></id>
+        <result column="email" property="email" ></result>
+        <result column="password" property="password" ></result>
+        <result column="username" property="username" ></result>
+        <result column="role" property="role" ></result>
+        <result column="status" property="status" ></result>
+        <result column="regTime" property="regTime" ></result>
+        <result column="regIp" property="regIp" ></result>
+    </resultMap>
+    <select id="getAllUser" resultMap="userList">
+        SELECT * FROM user
+    </select>
+    <select id="GetCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM user
+    </select>
+
+</mapper>
